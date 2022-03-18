@@ -54,7 +54,6 @@ print(skip_elements(["a", "b", "c", "d", "e", "f", "g"]))  # Should be ['a', 'c'
 print(skip_elements(
     ['Orange', 'Pineapple', 'Strawberry', 'Kiwi', 'Peach']))  # Should be ['Orange', 'Strawberry', 'Peach']
 
-
 # List Comprehension
 multiples = []
 # for x in range(1,11):
@@ -62,15 +61,15 @@ multiples = []
 # print(multiples)
 
 # using comprehension
-multiples = [x*7 for x in range(1,11)]
+multiples = [x * 7 for x in range(1, 11)]
 print(multiples)
 
-languages = ["Python","Ruby","Scala","Go","JS"]
+languages = ["Python", "Ruby", "Scala", "Go", "JS"]
 lengths = [len(x) for x in languages]
 print(lengths)
 
 # Conditional Comprehension
-x = [x for x in range(0,101) if x%3==0]
+x = [x for x in range(0, 101) if x % 3 == 0]
 print(x)
 
 filenames = ["program.c", "stdio.hpp", "sample.hpp", "a.out", "math.hpp", "hpp.out"]
@@ -79,4 +78,73 @@ filenames = ["program.c", "stdio.hpp", "sample.hpp", "a.out", "math.hpp", "hpp.o
 newfilenames = [x[:x.index("hpp")] + "h" if x.endswith("hpp") else x for x in filenames]
 
 print(newfilenames)
+
+
 # Should be ["program.c", "stdio.h", "sample.h", "a.out", "math.h", "hpp.out"]
+
+def pig_latin(text):
+    say = " "
+    # Separate the text into words
+    words = text.split()
+    new_list = []
+    for word in words:
+        # Create the pig latin word and add it to the list
+        word = word[1:] + word[0] + "ay"
+        new_list.append(word)
+        # Turn the list back into a phrase
+
+    return say.join(new_list)
+
+
+print(pig_latin("hello how are you"))  # Should be "ellohay owhay reaay ouyay"
+print(pig_latin("programming in python is fun"))  # Should be "rogrammingpay niay ythonpay siay unfay"
+
+
+def octal_to_string(octal):
+    result = ""
+    value_letters = [(4, "r"), (2, "w"), (1, "x")]
+    # Iterate over each of the digits in octal
+    for x in [int(n) for n in str(octal)]:
+        # Check for each of the permissions values
+        for value, letter in value_letters:
+            if x >= value:
+                result += letter
+                x -= value
+            else:
+                result += "-"
+    return result
+
+
+print(octal_to_string(755))  # Should be rwxr-xr-x
+print(octal_to_string(644))  # Should be rw-r--r--
+print(octal_to_string(750))  # Should be rwxr-x---
+print(octal_to_string(600))  # Should be rw-------
+
+
+def group_list(group, users):
+    members = group + ": " + " ".join(users)
+    return members
+
+
+print(group_list("Marketing", ["Mike", "Karen", "Jake", "Tasha"]))  # Should be "Marketing: Mike, Karen, Jake, Tasha"
+print(group_list("Engineering", ["Kim", "Jay", "Tom"]))  # Should be "Engineering: Kim, Jay, Tom"
+print(group_list("Users", ""))  # Should be "Users:"
+
+
+def guest_list(guests):
+    for x in guests:
+        name, age, profession = x
+        print("{0} is {1} years old and works as {2}".format(name,age,profession))
+
+
+# print("{name} is {age} years old and works as {}".format(name=name,age = age, profession = profession))
+
+guest_list([('Ken', 30, "Chef"), ("Pat", 35, 'Lawyer'), ('Amanda', 25, "Engineer")])
+
+# Click Run to submit code
+"""
+Output should match:
+Ken is 30 years old and works as Chef
+Pat is 35 years old and works as Lawyer
+Amanda is 25 years old and works as Engineer
+"""
