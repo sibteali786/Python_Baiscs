@@ -1,14 +1,14 @@
-class Apple():
-    color = ""
-    flavour = ""
-
-
-jonagold = Apple()
-jonagold.color = "red"
-jonagold.flavour = "sweet"
-
-print(jonagold.color)
-print(jonagold.flavour)
+# class Apple():
+#     color = ""
+#     flavour = ""
+#
+#
+# jonagold = Apple()
+# jonagold.color = "red"
+# jonagold.flavour = "sweet"
+#
+# print(jonagold.color)
+# print(jonagold.flavour)
 
 
 # Question 2
@@ -172,3 +172,46 @@ print(describe_furniture(table))
 # Should be "This piece of furniture is made of brown wood"
 print(describe_furniture(couch))
 # Should be "This piece of furniture is made of red leather"
+
+# Methods and Instances
+class Dog:
+    years = 0
+
+    def dog_years(self):
+        return self.years * 7
+
+
+fido = Dog()
+fido.years = 3
+print(fido.dog_years())
+
+
+class Apple():
+    def __init__(self, color, flavour):
+        self.color = color
+        self.flavour = flavour
+
+
+jonagold = Apple("red","sweet")
+print(jonagold.color)
+print(jonagold.flavour)
+
+
+
+
+class Person:
+    def __init__(self, name):
+        self.name = name
+    def greeting(self):
+        # Should return "hi, my name is " followed by the name of the Person.
+        """Outputs a greeting message with the name of the person"""
+        return "hi, my name is {}".format(self.name)
+    def __str__(self):
+        """Outputs a message with name of the person, when the object itself is printed"""
+        return "The name of the person is {}".format(self.name)
+# Create a new instance with a name of your choice
+some_person = Person("Ali")
+# Call the greeting method
+print(some_person)
+
+help(Person)
