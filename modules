@@ -1,0 +1,22 @@
+import random
+import datetime
+
+# Random methods
+for i in range(0,10):
+    print(random.randint(1,10))
+
+# date time module
+
+# datetime class
+
+now = datetime.datetime.now()   # date time module has datetime class having method now
+print(now)
+print(now.year)
+print(now.month)
+print(now.weekday())
+
+# timedelta for future date calculation
+
+future = now + datetime.timedelta(days=30)
+print(future)
+print(future.weekday())
