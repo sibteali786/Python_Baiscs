@@ -80,3 +80,4 @@ generate_report(users)
 
 
 # Whoop whoop! Success! The error message has been cleared and the desired output is produced. You are all done with this practice notebook. Way to go!
+
