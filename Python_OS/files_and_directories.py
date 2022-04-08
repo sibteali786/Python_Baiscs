@@ -20,3 +20,9 @@ lines = file.readlines()    # makes a list of it where each element is seperated
 file.close()
 print(lines)
 
+
+
+# wiriting to files
+with open("write.txt","w") as file:
+    file.write("It as goof to write something here")
+
