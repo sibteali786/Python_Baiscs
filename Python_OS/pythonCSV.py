@@ -6,6 +6,11 @@ import csv
 
 # f.close()
 
+with open("products_exports.csv") as File:
+    rows = csv.reader(File)
+    for row in rows:
+        print(row)
+
 hosts = [["workstation.local","192.168.25.46"],["workstation.cloud","10.2.5.6"]]
 with open('hosts.csv','w') as hosts_csv:
     writer = csv.writer(hosts_csv)

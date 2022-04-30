@@ -17,5 +17,5 @@ print(os.getcwd())
 # os.mkdir("new_dir") # creates new directory
 # os.chdir("new_dir") # change current directory to given one
 # os.rmdir()  # to remove an empty directory
-
+print(type(datetime.datetime.fromtimestamp(timestamp)))
 print(os.listdir()) # get contents of a directory
