@@ -116,3 +116,59 @@ print(check_character_groups("username user_01")) # True
 print(check_character_groups("shopping_list: milk, bread, eggs.")) # False
 
 # regex101.com r checking regular expression
+
+print(re.search(r"A.*a","Argentina"))   # matches whole world
+print(re.search(r"A.*a","Argentina"))   # Azerbaijan also mathces till last a why because we did not specified that
+# we wanted whole string to match
+
+print(re.search(r"A.*a$","Azerbaijan")) # now it do not mathces as we have specified that string should end with a
+print(re.search(r"A.*a$","Australia"))
+
+# Pattern for python variable naming rules
+pattern = r"^[a-zA-Z_][a-zA-Z0-9_]*$"
+print(re.search(pattern,"This_is_a_valid_variable_name"))   # matches the name
+print(re.search(pattern,"this isn't a variable name"))  # does not matches
+print(re.search(pattern,"my_variable123"))  # matches the name as its legal
+print(re.search(pattern,"123adca")) # do not matches as starts with the number
+
+def check_sentence(text):
+  result = re.search(r"^[A-Z][a-z]*\s+[\sa-z]+[\?\.\!]$", text)
+  return result != None
+
+print(check_sentence("Is this is a sentence?")) # True
+print(check_sentence("is this is a sentence?")) # False
+print(check_sentence("Hello")) # False
+print(check_sentence("1-2-3-GO!")) # False
+print(check_sentence("A star is born.")) # True
+
+
+# Regular Expressions Cheat-Sheet
+# Check out the following links for more information:
+#
+# https://docs.python.org/3/howto/regex.html
+#
+# https://docs.python.org/3/library/re.html
+#
+# https://docs.python.org/3/howto/regex.html#greedy-versus-non-greedy
+#
+# Shout out to regex101.com, which will explain each stage of a regex.
+
+def check_web_address(text):
+  result = re.search(r"^[A-Za-z._-][^/@]*$", text)
+  return result != None
+
+print(check_web_address("gmail.com")) # True
+print(check_web_address("www@google")) # False
+print(check_web_address("www.Coursera.org")) # True
+print(check_web_address("web-address.com/homepage")) # False
+print(check_web_address("My_Favorite-Blog.US")) # True
+
+
+def check_time(text):
+  result = re.search(r"^(?:1[0-2]|[1-9]):(?:[0-5][0-9])(?:\s?[APap][Mm])?$", text)
+  return result != None
+
+print(check_time("12:45pm")) # True
+print(check_time("9:59 AM")) # True
+print(check_time("6:60am")) # False
+print(check_time("five o'clock")) # False
